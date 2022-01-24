@@ -38,12 +38,6 @@ namespace WebSalesSystem
             UseMySql(connection,
             new MySqlServerVersion(new Version(8, 0, 5))));
             // Fim Da Conexão
-
-
-
-            // services.AddDbContext<WebSalesSystemContext>(options =>
-            //       options.UseMySql(Configuration.GetConnectionString("WebSalesSystemContext"), builder =>
-            //     builder.MigrationsAssembly("WebSalesSystem")));
         }
 
 
