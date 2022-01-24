@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Developer\\Projetos\\sistemas de vendas\\WebSalesSystem\\WebSalesSystem.csproj": {}
+    "C:\\Users\\rafae\\OneDrive\\Documentos\\Rafael Trabalhos\\ProjetoProprio\\Sales_System\\WebSalesSystem\\WebSalesSystem.csproj": {}
   },
   "projects": {
-    "D:\\Developer\\Projetos\\sistemas de vendas\\WebSalesSystem\\WebSalesSystem.csproj": {
+    "C:\\Users\\rafae\\OneDrive\\Documentos\\Rafael Trabalhos\\ProjetoProprio\\Sales_System\\WebSalesSystem\\WebSalesSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Developer\\Projetos\\sistemas de vendas\\WebSalesSystem\\WebSalesSystem.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\OneDrive\\Documentos\\Rafael Trabalhos\\ProjetoProprio\\Sales_System\\WebSalesSystem\\WebSalesSystem.csproj",
         "projectName": "WebSalesSystem",
-        "projectPath": "D:\\Developer\\Projetos\\sistemas de vendas\\WebSalesSystem\\WebSalesSystem.csproj",
-        "packagesPath": "C:\\Users\\moacy\\.nuget\\packages\\",
-        "outputPath": "D:\\Developer\\Projetos\\sistemas de vendas\\WebSalesSystem\\obj\\",
+        "projectPath": "C:\\Users\\rafae\\OneDrive\\Documentos\\Rafael Trabalhos\\ProjetoProprio\\Sales_System\\WebSalesSystem\\WebSalesSystem.csproj",
+        "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafae\\OneDrive\\Documentos\\Rafael Trabalhos\\ProjetoProprio\\Sales_System\\WebSalesSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\moacy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

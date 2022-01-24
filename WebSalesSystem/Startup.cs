@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using WebSalesSystem.Data;
 using System;
+using WebSalesSystem.Services;
 
 namespace WebSalesSystem
 {
@@ -38,6 +39,12 @@ namespace WebSalesSystem
             UseMySql(connection,
             new MySqlServerVersion(new Version(8, 0, 5))));
             // Fim Da Conexão
+
+
+            //Add a classe que contem as regras de negocios referente a clientes
+            services.AddScoped<ClientService>();
+
+
         }
 
 
