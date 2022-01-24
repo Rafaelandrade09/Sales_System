@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using WebSalesSystem.Data;
-
+using System;
 
 namespace WebSalesSystem
 {
@@ -30,9 +30,20 @@ namespace WebSalesSystem
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<WebSalesSystemContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("WebSalesSystemContext"), builder =>
-                    builder.MigrationsAssembly("WebSalesSystem")));
+
+            //Conexão com DB
+            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+
+            services.AddDbContext<WebSalesSystemContext>(options => options.
+            UseMySql(connection,
+            new MySqlServerVersion(new Version(8, 0, 5))));
+            // Fim Da Conexão
+
+
+
+            // services.AddDbContext<WebSalesSystemContext>(options =>
+            //       options.UseMySql(Configuration.GetConnectionString("WebSalesSystemContext"), builder =>
+            //     builder.MigrationsAssembly("WebSalesSystem")));
         }
 
 

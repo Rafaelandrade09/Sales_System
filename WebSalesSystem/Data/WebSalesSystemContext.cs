@@ -9,10 +9,7 @@ namespace WebSalesSystem.Data
 {
     public class WebSalesSystemContext : DbContext
     {
-        public WebSalesSystemContext (DbContextOptions<WebSalesSystemContext> options)
-            : base(options)
-        {
-        }
+        public WebSalesSystemContext (DbContextOptions<WebSalesSystemContext> options) : base(options){}
 
         public DbSet<Client> Client { get; set; }
     }
