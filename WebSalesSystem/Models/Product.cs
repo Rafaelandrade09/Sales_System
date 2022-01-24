@@ -7,6 +7,10 @@ namespace WebSalesSystem.Models
     [Table("Produtos")]
     public class Product
     {
+        [Display(Name ="ID")]
+        public long Id { get; set; }
+
+
         [Column("Nome")]
         [Required]
         [StringLength(150)]
@@ -27,5 +31,14 @@ namespace WebSalesSystem.Models
         [Column("Imagem Url")]
         [StringLength(300)]
         public string ImageURL { get; set; }
+
+        public Product(long id, string name, string description, decimal price, string imageURL)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Price = price;
+            ImageURL = imageURL;
+        }
     }
 }
