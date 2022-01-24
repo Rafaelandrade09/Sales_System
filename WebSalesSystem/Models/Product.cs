@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WebSalesSystem.Models
 {
 
-    [Table("Produtos")]
     public class Product
     {
+        [Key]
         [Display(Name ="ID")]
         public long Id { get; set; }
 
@@ -32,13 +32,7 @@ namespace WebSalesSystem.Models
         [StringLength(300)]
         public string ImageURL { get; set; }
 
-        public Product(long id, string name, string description, decimal price, string imageURL)
-        {
-            Id = id;
-            Name = name;
-            Description = description;
-            Price = price;
-            ImageURL = imageURL;
-        }
+
+
     }
 }

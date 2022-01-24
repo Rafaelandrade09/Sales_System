@@ -12,5 +12,6 @@ namespace WebSalesSystem.Data
         public WebSalesSystemContext (DbContextOptions<WebSalesSystemContext> options) : base(options){}
 
         public DbSet<Client> Client { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
