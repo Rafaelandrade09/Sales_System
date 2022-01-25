@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebSalesSystem.Data;
 using WebSalesSystem.Models;
+using WebSalesSystem.Models.ViewModels;
 using WebSalesSystem.Services;
+using WebSalesSystem.Services.Exceptions;
 
 namespace WebSalesSystem.Controllers
 {
@@ -19,6 +22,8 @@ namespace WebSalesSystem.Controllers
         {
             _clientService = clientService;
         }
+
+
         //Pag de listas de clientes
         public async Task<IActionResult> Index()
         {
@@ -36,20 +41,83 @@ namespace WebSalesSystem.Controllers
         //Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Client client)
+        public async Task<IActionResult> Create(Client client)
         {
-            _clientService.Insert(client);
+            if (!ModelState.IsValid)
+            {
+                return View(client);
+            }
+
+            await _clientService.InsertAsync(client);
             return RedirectToAction(nameof(Index));   
         }
 
-        //Tela de confirmacao para delete
-        public IActionResult Delete(int? id)
+
+        //Update Pag
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+            }
+                
 
-            var obj = _clientService.FindById(id.Value);
+            var obj = await _clientService.FindByIdAsync(id.Value);
 
-            if (obj == null) return NotFound();
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+            }
+            
+
+            return View(obj);
+        }
+
+
+        //Update
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Client client)
+        {
+           
+
+
+            if (id != client.Id)
+            {
+                 return RedirectToAction(nameof(Error), new { message = "Id mismatch" });
+                
+            }
+
+            try
+            {
+               await _clientService.UpdateAsync(client);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (ApplicationException e)
+            {
+                return RedirectToAction(nameof(Error), new { message = e.Message }); 
+            }
+            
+
+
+
+        }
+
+
+        //Tela de confirmacao para delete
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+            }
+
+            var obj = await _clientService.FindByIdAsync(id.Value);
+
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+            }
 
             return View(obj);
         }
@@ -60,30 +128,44 @@ namespace WebSalesSystem.Controllers
         //Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _clientService.Remove(id);
+           await _clientService.RemoveAsync(id);
             return RedirectToAction(nameof(Index)); 
         }
 
 
 
         //Pag para detalhes 
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+            }
 
-            var obj = _clientService.FindById(id.Value);
+            var obj = await _clientService.FindByIdAsync(id.Value);
 
-            if (obj == null) return NotFound();
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+            }
 
             return View(obj);
         }
 
 
+        //Pag de erro
 
-
-
+        public IActionResult Error(string message)
+        {
+            var viewModel = new ErrorViewModel
+            {
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View(viewModel);
+        }
 
 
 

@@ -13,29 +13,36 @@
 <form asp-action="Create">
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="FirstName">FirstName</label>
+            <label asp-for="FirstName">First Name *</label>
             <input asp-for="FirstName" class="form-control">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
         <div class="form-group col-md-6">
-            <label asp-for="LastName">LastName</label>
+            <label asp-for="LastName">Last Name *</label>
             <input asp-for="LastName" class="form-control">
+            <span asp-validation-for="LastName" class="text-danger"></span>
         </div>
         <div class="form-group col-md-3">
-            <label asp-for="Birth" class="control-label">Birth Date</label>
+            <label asp-for="Birth" class="control-label">Birth Date *</label>
             <input type="date" asp-for="Birth" class="form-control"/>
+            <span asp-validation-for="Birth" class="text-danger"></span>
        </div>
         <div class="form-group col-md-3">
-            <label asp-for="Cpf" class="control-label">Cpf</label>
+            <label asp-for="Cpf" class="control-label">Cpf *</label>
             <input  asp-for="Cpf" class="form-control" placeholder="000.000.000-00"/>
+            <span asp-validation-for="Cpf" class="text-danger"></span>
        </div>
        <div class="form-group col-md-4">
-            <label asp-for="Cell" class="control-label">Cell</label>
+            <label asp-for="Cell" class="control-label">Cell *</label>
             <input type="number" asp-for="Cell" class="form-control" placeholder="(DDD) + Cell"/>
+            <span asp-validation-for="Cell" class="text-danger"></span>
        </div>
         
        <div class="form-group col-md-7">
             <label asp-for="Email" class="control-label">Email</label>
             <input type="email" asp-for="Email" class="form-control" placeholder="Ex: ana@gmail.com" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
        </div>
        
         <div class="form-group col-md-3">
@@ -43,7 +50,7 @@
             <input type="number" asp-for="Cep" class="form-control" placeholder="00000-000" />
         </div>
         <div class="form-group col-md-3">
-            <label asp-for="State" class="control-label">State</label>
+            <label asp-for="State" class="control-label">State *</label>
             <select id="inputEstado" class="form-control">
                  <option selected>SP</option>
                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
@@ -56,20 +63,26 @@
             </select>
         </div>
         <div class="form-group col-md-3">
-            <label asp-for="City" class="control-label">City</label>
+            <label asp-for="City" class="control-label">City *</label>
             <input asp-for="City" class="form-control"/>
+            <span asp-validation-for="City" class="text-danger"></span>
+
         </div>
         <div class="form-group col-md-4">
-            <label asp-for="District" class="control-label">District</label>
+            <label asp-for="District" class="control-label">District *</label>
             <input asp-for="District" class="form-control"/>
+            <span asp-validation-for="District" class="text-danger"></span>
         </div>
         <div class="form-group col-md-6">
-            <label asp-for="Street" class="control-label">Street</label>
+            <label asp-for="Street" class="control-label">Street *</label>
             <input asp-for="Street" class="form-control" placeholder="Rua ..."/>
+            <span asp-validation-for="Street" class="text-danger"></span>
+
         </div>
         <div class="form-group col-md-2">
-            <label asp-for="HouseNumber" class="control-label">House Number</label>
+            <label asp-for="HouseNumber" class="control-label">House Number *</label>
             <input type="number" asp-for="HouseNumber" class="form-control" />
+            <span asp-validation-for="HouseNumber" class="text-danger"></span>
         </div>
     </div>
     
@@ -78,8 +91,14 @@
         <input type="submit" value="Create" class="btn btn-info" />
     </div>
 </form>
-    
+   
 
+<!--Validando os campos por meio de Js-->
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
 
 
 
