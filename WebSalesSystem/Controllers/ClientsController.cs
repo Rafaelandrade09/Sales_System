@@ -68,8 +68,17 @@ namespace WebSalesSystem.Controllers
 
 
 
+        //Pag para detalhes 
+        public IActionResult Details(int? id)
+        {
+            if (id == null) return NotFound();
 
+            var obj = _clientService.FindById(id.Value);
 
+            if (obj == null) return NotFound();
+
+            return View(obj);
+        }
 
 
 
