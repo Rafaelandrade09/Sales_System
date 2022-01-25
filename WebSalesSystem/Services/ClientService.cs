@@ -23,7 +23,11 @@ namespace WebSalesSystem.Services
             return await _context.Client.ToListAsync();
         }
 
-
+        public void Insert(Client obj)
+        {
+            _context.Client.Add(obj);
+            _context.SaveChanges(); 
+        }
 
 
 

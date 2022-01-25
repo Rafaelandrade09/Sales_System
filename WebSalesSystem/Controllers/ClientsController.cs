@@ -27,8 +27,18 @@ namespace WebSalesSystem.Controllers
             return View(list); 
         }
 
+        public IActionResult Create()
+        {
+            return View();  
+        }
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Client client)
+        {
+            _clientService.Insert(client);
+            return RedirectToAction(nameof(Index));   
+        }
 
 
 
