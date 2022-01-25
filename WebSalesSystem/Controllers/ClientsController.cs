@@ -19,7 +19,7 @@ namespace WebSalesSystem.Controllers
         {
             _clientService = clientService;
         }
-
+        //Pag de listas de clientes
         public async Task<IActionResult> Index()
         {
             var list = await _clientService.FindAllAsync();
@@ -27,11 +27,13 @@ namespace WebSalesSystem.Controllers
             return View(list); 
         }
 
+        //Chamada para a pag de create
         public IActionResult Create()
         {
             return View();  
         }
 
+        //Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Client client)
@@ -40,12 +42,29 @@ namespace WebSalesSystem.Controllers
             return RedirectToAction(nameof(Index));   
         }
 
+        //Tela de confirmacao para delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var obj = _clientService.FindById(id.Value);
+
+            if (obj == null) return NotFound();
+
+            return View(obj);
+        }
 
 
 
 
-
-
+        //Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            _clientService.Remove(id);
+            return RedirectToAction(nameof(Index)); 
+        }
 
 
 

@@ -5,6 +5,11 @@
       "ProjectGuid": "234c7887-416b-4cf6-b31c-328a78765909",
       "DisplayName": "WebSalesSystem",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

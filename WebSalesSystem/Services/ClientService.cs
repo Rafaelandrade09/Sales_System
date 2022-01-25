@@ -23,10 +23,29 @@ namespace WebSalesSystem.Services
             return await _context.Client.ToListAsync();
         }
 
+
+        //FindById
+        public Client FindById(int id)
+        {
+            return _context.Client.FirstOrDefault(obj => obj.Id == id);
+        }
+
+
+
+        //Create
         public void Insert(Client obj)
         {
             _context.Client.Add(obj);
             _context.SaveChanges(); 
+        }
+
+      
+        //Delete
+        public void Remove(int id)
+        {
+            var obj = _context.Client.Find(id);
+            _context.Client.Remove(obj);
+            _context.SaveChanges();
         }
 
 
