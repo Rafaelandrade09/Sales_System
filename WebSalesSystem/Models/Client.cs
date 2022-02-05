@@ -20,19 +20,20 @@ namespace WebSalesSystem.Models
         public DateTime Birth { get; set; }
 
         [Required(ErrorMessage = "Cpf required")]
-        public string Cpf { get; set; }
+        public int Cpf { get; set; }
 
         [Required(ErrorMessage = "Cell required")]
         [DataType(DataType.PhoneNumber)]
-        public string Cell { get; set; }
+        public int Cell { get; set; }
 
         [EmailAddress(ErrorMessage = "Enter a valid email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        public string Cep { get; set; }
+        public int Cep { get; set; }
 
-       // [Required(ErrorMessage = "State required")]
+        // [Required(ErrorMessage = "State required")]
+        [StringLength(2)]
         public string State { get; set; }
 
         [Required(ErrorMessage = "City required")]
@@ -53,7 +54,7 @@ namespace WebSalesSystem.Models
         }
 
         public Client(int id, string firstName, string lastName, DateTime birth,
-                      string cpf, string cell, string email, string cep, string state,
+                      int cpf, int cell, string email, int cep, string state,
                       string city, string district, string street, int houseNumber)
         {
             Id = id;
@@ -70,5 +71,14 @@ namespace WebSalesSystem.Models
             Street = street;
             HouseNumber = houseNumber;
         }
+
+        public enum States
+        {
+            AC, PA, RO, RR, TO, MA, PB, PE, PI, RN, SE, GO, MS, MT,
+            ES, MG, RJ, SP, RS, SC, AM, AP, AL, BA, CE, PR
+        }
+
+
+
     }
 }
