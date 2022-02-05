@@ -1,13 +1,13 @@
 ﻿@model WebSalesSystem.Models.Client
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h1>Details</h1>
+<h2>@ViewData["Title"]</h2>
 
 <div>
-    <h4>Client</h4>
+    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -85,6 +85,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Editar</a> |
+    <a asp-action="Index">Voltar</a>
 </div>

@@ -1,31 +1,31 @@
 ﻿@model WebSalesSystem.Models.Client
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Novo Cliente";
 }
 
 
 
 <h2>@ViewData["Title"]</h2>
 
-<h4>New Client</h4>
+
 <hr/>
 
 
 <form asp-action="Create">
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label asp-for="FirstName">First Name *</label>
+            <label asp-for="FirstName">Primeiro Nome *</label>
             <input asp-for="FirstName" class="form-control">
             <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
         <div class="form-group col-md-6">
-            <label asp-for="LastName">Last Name *</label>
+            <label asp-for="LastName">Sobrenome *</label>
             <input asp-for="LastName" class="form-control">
             <span asp-validation-for="LastName" class="text-danger"></span>
         </div>
         <div class="form-group col-md-3">
-            <label asp-for="Birth" class="control-label">Birth Date *</label>
+            <label asp-for="Birth" class="control-label">Data de Nasc *</label>
             <input type="date" asp-for="Birth" class="form-control"/>
             <span asp-validation-for="Birth" class="text-danger"></span>
        </div>
@@ -52,7 +52,7 @@
             <input type="number" asp-for="Cep" class="form-control" placeholder="00000-000" />
         </div>
         <div class="form-group col-md-3">
-            <label asp-for="State" class="control-label">State *</label>
+            <label asp-for="State" class="control-label">Estado *</label>
             <select class="form-control" id="State" name="State">
                 <option>AC</option>
                 <option>PA</option>
@@ -85,24 +85,24 @@
             
         </div>
         <div class="form-group col-md-3">
-            <label asp-for="City" class="control-label">City *</label>
+            <label asp-for="City" class="control-label">Cidade *</label>
             <input asp-for="City" class="form-control"/>
             <span asp-validation-for="City" class="text-danger"></span>
 
         </div>
         <div class="form-group col-md-4">
-            <label asp-for="District" class="control-label">District *</label>
+            <label asp-for="District" class="control-label">Bairro *</label>
             <input asp-for="District" class="form-control"/>
             <span asp-validation-for="District" class="text-danger"></span>
         </div>
         <div class="form-group col-md-6">
-            <label asp-for="Street" class="control-label">Street *</label>
+            <label asp-for="Street" class="control-label">Rua *</label>
             <input asp-for="Street" class="form-control" placeholder="Rua ..."/>
             <span asp-validation-for="Street" class="text-danger"></span>
 
         </div>
         <div class="form-group col-md-2">
-            <label asp-for="HouseNumber" class="control-label">House Number *</label>
+            <label asp-for="HouseNumber" class="control-label">Numero *</label>
             <input type="number" asp-for="HouseNumber" class="form-control" />
             <span asp-validation-for="HouseNumber" class="text-danger"></span>
         </div>
@@ -110,8 +110,10 @@
     
     
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-info" />
+        <input type="submit" value="Salvar" class="btn btn-info" />
+        <a asp-action="Index">Voltar</a>
     </div>
+
 </form>
    
 
